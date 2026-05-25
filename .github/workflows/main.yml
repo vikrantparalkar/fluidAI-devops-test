@@ -74,7 +74,7 @@ jobs:
         run: |
           sed -i 's/tag:.*/tag: "'"${TAG}"'"/g' helm/student-api/values.yaml
 
-      - name: adding authenticity
+      - name: Configure Git
         run: |
           git config --global user.email "vikrantparalkar21@gmail.com"
           git config --global user.name "vikrantparalkar"
