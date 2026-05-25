@@ -9,7 +9,7 @@ spec:
   project: default
 
   source:
-    repoURL: 'https://github.com/vikrantparalkar/SRE-Bootcamp.git'
+    repoURL: 'https://github.com/vikrantparalkar/fluidAI-devops-test.git'
     targetRevision: main
     path: helm/student-api
 

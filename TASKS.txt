@@ -1,0 +1,113 @@
+DevOps Engineer — 90 Minute Infrastructure Challenge
+Time Limit: 90 minutes total
+Video Length: 8–12 minutes
+
+Task
+Build and deploy a minimal production-style application stack using Kubernetes and CI/CD.
+Your system should demonstrate:
+containerization, 
+deployment automation, 
+observability, 
+and operational debugging ability. 
+You may use any tools/frameworks/cloud providers locally or remotely.
+
+Requirements
+1. Working Deployment (Mandatory)
+Deploy a simple application stack to Kubernetes.
+Minimum requirements:
+1 backend service 
+1 database/service dependency
+Kubernetes deployment working end-to-end
+You may use:
+Minikube 
+Kind
+k3s 
+EKS/AKS/GKE 
+or any equivalent setup 
+The application itself can be extremely simple.
+We are evaluating infrastructure quality, not frontend complexity.
+
+2. CI/CD Pipeline (Mandatory)
+Create a working CI/CD pipeline that:
+builds the application, 
+creates a Docker image, 
+and deploys to Kubernetes automatically. 
+You may use:
+GitHub Actions
+GitLab CI 
+Jenkins 
+ArgoCD 
+or equivalent tooling. 
+
+3. One Real Reliability Improvement (Mandatory)
+Choose ONE and implement it properly:
+readiness/liveness probes 
+autoscaling 
+rollback handling 
+Helm templating 
+secret management 
+logging/monitoring 
+resource tuning 
+canary/blue-green deployment 
+persistent storage handling 
+ingress/routing 
+retry/circuit breaker logic 
+You must explain:
+why you chose it, 
+what problem it solves, 
+and what tradeoff it introduces. 
+
+4. Intentional Failure Simulation (Mandatory)
+Intentionally create ONE failure scenario and debug it live.
+Examples:
+crashing container 
+failed health check 
+bad environment variable 
+image pull issue 
+broken ingress 
+CPU/memory issue 
+failed deployment 
+database connectivity issue 
+incorrect Kubernetes config 
+You must:
+show the failure, 
+debug it, 
+explain your reasoning, 
+and fix it. 
+This is the most important section.
+
+Submission Requirements
+Video Submission (Mandatory)
+1. Live Demo (3–4 min)
+Show:
+application working, 
+Kubernetes resources, 
+CI/CD execution, 
+and successful deployment. 
+
+2. Architecture Walkthrough (2–3 min)
+Explain:
+cluster setup, 
+deployment flow, 
+CI/CD pipeline, 
+reliability decisions, 
+and why you structured things this way. 
+
+3. Failure Debugging Walkthrough (2–3 min)
+Show:
+the exact failure, 
+symptoms observed, 
+commands/logs/metrics checked, 
+wrong assumptions (if any), 
+and final root cause. 
+We care heavily about debugging methodology.
+
+4. Tradeoff Discussion (1–2 min)
+Explain:
+what you intentionally simplified, 
+what would break at scale, 
+and what you would improve in a real production environment. 
+
+Rules
+Do NOT use fully managed “one-click” deployment platforms 
+Do NOT hide Kubernetes details behind abstractions 

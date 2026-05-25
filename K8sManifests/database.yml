@@ -6,6 +6,36 @@ metadata:
 
 data:
   POSTGRES_DB: students
+  POSTGRES_USER: postgres
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-secret
+  namespace: student-api
+type: OpaqueOpaque
+data:
+  POSTGRES_PASSWORD: cGFzc3dvcmQ=
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-pv
+  namespace: student-api
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  hostPath:
+    path: /home/vicky/postgres-data
+
 ---
 
 apiVersion: v1
@@ -43,9 +73,6 @@ spec:
         app: postgresdb
 
     spec:
-
-      nodeSelector:
-        type: database
 
       containers:
       - name: postgresdb

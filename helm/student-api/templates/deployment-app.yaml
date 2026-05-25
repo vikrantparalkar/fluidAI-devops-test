@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restapi-deployment
+  namespace: {{ .Values.namespace }}
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: restapi
+
+  template:
+    metadata:
+      labels:
+        app: restapi
+
+    spec:
+    
+      containers:
+      - name: restapi
+
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+
+        ports:
+        - containerPort: 5000
+
+        envFrom:
+        - configMapRef:
+            name: restapi-config
+
+        - configMapRef:
+            name: postgresdb-config
+
+        - secretRef:
+            name: db-secret

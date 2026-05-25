@@ -29,34 +29,7 @@ spec:
         app: restapi
 
     spec:
-
-      nodeSelector:
-        type: application
-
-      initContainers:
-      - name: db-migration
-
-        image: vikrantparalkar21/student-api:1.0.1
-
-        command:
-         - sh
-         - -c
-         - |
-            apt update && apt install postgresql-client -y &&
-            PGPASSWORD=$POSTGRES_PASSWORD psql \
-            -h postgresdb-service \
-            -U $POSTGRES_USER \
-            -d $POSTGRES_DB \
-            -f migrations.sql
-
-        envFrom:
-        - configMapRef:
-            name: restapi-config
-        - configMapRef:
-            name: postgresdb-config
-        - secretRef:
-            name: db-secret
-
+    
       containers:
       - name: restapi
 

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresdb-deployment
+  namespace: {{ .Values.namespace }}
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: postgresdb
+
+  template:
+    metadata:
+      labels:
+        app: postgresdb
+
+    spec:
+      nodeSelector:
+        type: database
+
+      containers:
+      - name: postgresdb
+        image: {{ .Values.postgres.image }}
+
+        ports:
+        - containerPort: 5432
+
+        envFrom:
+        - configMapRef:
+            name: postgresdb-config
+
+        - secretRef:
+            name: db-secret
+
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-storage
+
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: postgres-pvc
