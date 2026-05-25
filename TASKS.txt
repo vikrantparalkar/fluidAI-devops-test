@@ -33,7 +33,7 @@ builds the application,
 creates a Docker image, 
 and deploys to Kubernetes automatically. 
 You may use:
-GitHub Actions
+GitHub Actions 
 GitLab CI 
 Jenkins 
 ArgoCD 
