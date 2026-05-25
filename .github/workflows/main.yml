@@ -1,4 +1,4 @@
-name: sre-bootcamp-cicd
+name: fluidai-cicd
 
 on:
   workflow_dispatch:
@@ -18,7 +18,7 @@ env:
 jobs:
 
   build-n-push :
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v6.0.2
@@ -61,7 +61,7 @@ jobs:
 
   deploy :
     needs: build-n-push
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
 
       - name: Checkout code
@@ -73,7 +73,12 @@ jobs:
       - name: updating the "image tag" in values of helm
         run: |
           sed -i 's/tag:.*/tag: "'"${TAG}"'"/g' helm/student-api/values.yaml
-          
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "vikrantparalkar21@gmail.com"
+          git config --global user.name "vikrantparalkar"
+
       - name: git commit changes
         run: |
           git add helm/student-api/values.yaml
