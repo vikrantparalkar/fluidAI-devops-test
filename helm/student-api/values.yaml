@@ -4,7 +4,7 @@ replicaCount: 2
 
 image:
   repository: vikrantparalkar21/student-api
-  tag: "8c12d27"
+  tag: "c7bbce9"
 
 service:
   type: NodePort
