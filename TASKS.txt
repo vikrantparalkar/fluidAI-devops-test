@@ -50,7 +50,7 @@ logging/monitoring
 resource tuning 
 canary/blue-green deployment 
 persistent storage handling 
-ingress/routing 
+ingress/routing
 retry/circuit breaker logic 
 You must explain:
 why you chose it, 
