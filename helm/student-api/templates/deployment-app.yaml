@@ -5,8 +5,8 @@ metadata:
   namespace: student-api
 
 data:
-  DATABASE_URL: "postgresql://postgres:password@postgresdb-service:5432/students"
-  PORT: "5000"
+  # DATABASE_URL: "postgresql://postgres:password@postgresdb-service:5432/students"
+  # PORT: "5000"
 
 ---
 apiVersion: apps/v1
