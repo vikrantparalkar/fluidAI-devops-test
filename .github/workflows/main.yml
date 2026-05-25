@@ -73,7 +73,12 @@ jobs:
       - name: updating the "image tag" in values of helm
         run: |
           sed -i 's/tag:.*/tag: "'"${TAG}"'"/g' helm/student-api/values.yaml
-          
+
+      - name: adding authenticity
+        run: |
+          git config --global user.email "vikrantparalkar21@gmail.com"
+          git config --global user.name "vikrantparalkar"
+
       - name: git commit changes
         run: |
           git add helm/student-api/values.yaml
