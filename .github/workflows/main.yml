@@ -1,4 +1,4 @@
-name: sre-bootcamp-cicd
+name: fluidai-cicd
 
 on:
   workflow_dispatch:
