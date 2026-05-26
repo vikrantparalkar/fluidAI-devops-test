@@ -3,7 +3,7 @@ namespace: student-api
 replicaCount: 2
 
 image:
-  repository: vikrantparalkar21/student-api
+  repository: vikrantparalkar21/student-ap
   tag: "ac1d211"
 
 service:
